@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fungsi Kuadrat</title>
+    <link rel="stylesheet" href="styles.css">
+     <!-- Link ke file CSS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.5.0/math.min.js"></script> 
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo" style="color: white;">Fungsi Kuadrat</div>
+        <div>
+            <a href="#home">Home</a>
+            <a href="#kalkulator">Kalkulator</a>
+            <a href="#grafik">Grafik</a>
+            <a href="#anggota">Anggota</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Intro Text (Teks Pembuka) -->
+
+
+    <!-- Header -->
+<header id="home">
+    <h1>QuadCalc</h1>
+    <p>Fungsi Kuadrat</p> <!-- Nama Kelompok -->
+    <q>Belajar dan pahami tentang fungsi kuadrat, grafik, dan kalkulasinya</q>
+</header>
+
+
+    <!-- Penjelasan Fungsi Kuadrat -->
+    <section id="penjelasan">
+        <h2>Apa itu Fungsi Kuadrat?</h2>
+        <p>
+            Fungsi kuadrat adalah fungsi polinomial yang memiliki variabel dengan pangkat tertinggi dua. Bentuk umum dari fungsi kuadrat menyerupai bentuk persamaan kuadrat.
+        </p>
+        <p><b>Persamaan Kuadrat:</b> \( ax^2 + bx + c = 0 \)</p>
+        <p><b>Bentuk Umum Fungsi Kuadrat:</b> \( f(x) = ax^2 + bx + c \)</p>
+        <p><b>Fungsi Kuadrat:</b> \( f(x) = \) fungsi kuadrat</p>
+        <p><b>x:</b> variabel</p>
+        <p><b>a, b:</b> koefisien</p>
+        <p><b>c:</b> konstanta</p>
+        <p><b>a ≠ 0:</b> Koefisien a tidak boleh sama dengan nol.</p>
+
+        <h3>Rumus Fungsi Kuadrat</h3>
+        <p>Grafik fungsi kuadrat dapat digambarkan dalam diagram Cartesius. Berikut adalah langkah-langkah dalam menggambar grafik fungsi kuadrat berdasarkan persamaan dan tabel nilai:</p>
+        <ul>
+            <li><b>Titik potong terhadap sumbu Y:</b> Diperoleh dengan mengganti x = 0.</li>
+            <li><b>Titik potong terhadap sumbu X:</b> Diperoleh dengan mencari nilai x yang membuat persamaan sama dengan nol (misalnya menggunakan faktorisasi).</li>
+        </ul>
+        
+        <h3>Contoh Persamaan dan Grafik</h3>
+        <p>Misalkan kita punya persamaan kuadrat \( y = x^2 + 2x + 1 \), maka:</p>
+        <ul>
+            <li><b>Titik potong terhadap sumbu Y:</b> \( y = 1 \) ketika \( x = 0 \). Jadi, titik potongnya adalah (0, 1).</li>
+            <li><b>Titik potong terhadap sumbu X:</b> Solusi dari \( x^2 + 2x + 1 = 0 \) menghasilkan \( x = -1 \). Jadi, titik potongnya adalah (-1, 0).</li>
+        </ul>
+        
+        <h3>Hubungan Koefisien dengan Grafik</h3>
+        <p>Grafik fungsi kuadrat juga dipengaruhi oleh koefisien \( a \), \( b \), dan \( c \). Berikut penjelasannya:</p>
+        
+        <h4>Koefisien a:</h4>
+        <ul>
+            <li>Jika \( a > 0 \), grafik terbuka ke atas.</li>
+            <li>Jika \( a < 0 \), grafik terbuka ke bawah.</li>
+            <li>Semakin besar nilai \( |a| \), grafik semakin sempit.</li>
+        </ul>
+
+        <h4>Koefisien b:</h4>
+        <p>Koefisien b berpengaruh pada posisi sumbu simetri dan titik puncak fungsi. Misalnya, pada persamaan \( y = x^2 + 2x + 4 \), bentuk kuadrat sempurnanya adalah \( (x + 1)^2 + 5 \).</p>
+        <p><b>Jika c positif:</b> sumbu simetri \( x = -c \), titik puncak (-c, d).</p>
+        <p><b>Jika c negatif:</b> sumbu simetri \( x = c \), titik puncak (c, d).</p>
+
+        <h4>Koefisien c:</h4>
+        <p>Konstanta c mempengaruhi posisi grafik terhadap sumbu Y:</p>
+        <ul>
+            <li>Jika c semakin besar, grafik semakin berada di atas.</li>
+            <li>Jika c semakin kecil, grafik semakin berada di bawah.</li>
+        </ul>
+
+        <h3>Hubungan Diskriminan dengan Grafik</h3>
+        <p>Diskriminan \( D \) digunakan untuk menentukan jumlah solusi persamaan kuadrat dan berhubungan dengan jumlah titik potong grafik terhadap sumbu X.</p>
+        <ul>
+            <li><b>Jika D > 0:</b> Grafik menyentuh sumbu X di dua titik (dua solusi real).</li>
+            <li><b>Jika D = 0:</b> Grafik menyentuh sumbu X di satu titik (satu solusi real).</li>
+            <li><b>Jika D < 0:</b> Grafik tidak menyentuh sumbu X (tidak ada solusi real).</li>
+        </ul>
+        <p>Contoh: Pada persamaan \( y = 3x^2 + x + 1 \), diskriminannya adalah \( D = b^2 - 4ac = 1^2 - 4(3)(1) = -11 \), sehingga grafiknya tidak menyentuh sumbu X.</p>
+    </section>
+
+    <!-- Kalkulator -->
+<section id="kalkulator">
+    <h2>Kalkulator Fungsi Kuadrat</h2>
+    <p>Masukkan nilai untuk menghitung fungsi kuadrat dan turunannya:</p>
+    <div class="form-container">
+        <label for="a">Koefisien a:</label>
+        <input type="number" id="a" placeholder="Masukkan nilai a">
+
+        <label for="b">Koefisien b:</label>
+        <input type="number" id="b" placeholder="Masukkan nilai b">
+
+        <label for="c">Koefisien c:</label>
+        <input type="number" id="c" placeholder="Masukkan nilai c">
+
+        <button class="button" onclick="calculateQuadratic()">Hitung</button>
+    </div>
+    <div id="result" class="result-box" style="display: none;">
+        <canvas id="quadraticGraph" width="400" height="400"></canvas> <!-- Elemen untuk grafik -->
+    </div>
+</section>
+
+<section id="grafik">
+<div class="form-container2">
+    <label>Fungsi f(x): <input type="text" id="functionInput" value="x^2 + 3*x + 2" size="20"></label>
+    <button class="button" onclick="drawGraph()">Gambar Grafik</button>
+  </div>
+
+  <div class="form-container3">
+  <!-- Elemen Canvas untuk menggambar grafik -->
+  <canvas id="grafikCanvas" width="500" height="500"></canvas>
+  <!-- Tempat untuk menampilkan koordinat -->
+</div>
+
+<div id="coordinates" style="text-align: center;">Koordinat: (x: -, y: -)</div>
+</section>
+  
+    <!-- Anggota Tim -->
+<section id="anggota">
+    <h2>Anggota Tim</h2>
+    <div class="team-members">
+        <!-- Anggota 1 -->
+        <div class="member">
+            <img src="image/faisal.png" alt="Faisal Fadillah Al Ghifari" class="member-photo">
+            <p class="member-name">Faisal Fadillah Al Ghifari</p>
+            <p class="member-npm">NPM: 247006111123</p>
+        </div>
+        <!-- Anggota 2 -->
+        <div class="member">
+            <img src="image/reza.png" alt="Reza Pahri Fauzi" class="member-photo">
+            <p class="member-name">Reza Pahri Fauzi</p>
+            <p class="member-npm">NPM: 247006111124</p>
+        </div>
+        <!-- Anggota 3 -->
+        <div class="member">
+            <img src="image/adil.png" alt="Achmad Adil Arasy Darmawan" class="member-photo">
+            <p class="member-name">Achmad Adil Arasy Darmawan</p>
+            <p class="member-npm">NPM: 247006111128</p>
+        </div>
+        <!-- Anggota 4 -->
+        <div class="member">
+            <img src="image/ripki.png" alt="Ripki Maulana" class="member-photo">
+            <p class="member-name">Ripki Maulana</p>
+            <p class="member-npm">NPM: 247006111139</p>
+        </div>
+        <!-- Anggota 5 -->
+        <div class="member">
+            <img src="image/fadli.png" alt="Fadhli Fajriel Habibie" class="member-photo">
+            <p class="member-name">Fadhli Fajrial Habibie</p>
+            <p class="member-npm">NPM: 247006111142</p>
+        </div>
+    </div>
+</section>
+
+
+<!-- Contact -->
+<section id="contact">
+    <h2>Contact Person</h2>
+    <p>Email: <a href="mailto:contact@example.com">contact@example.com</a></p>
+    <p>WhatsApp: +62 812-3456-7890</p>
+    
+    <!-- Logo Universitas -->
+    <div class="university-logo">
+        <img src="image/unsil.png" alt="Logo Universitas" class="logo-image">
+    </div>
+</section>
+
+
+    <footer>
+        <p>&copy; 2024 Fungsi Kuadrat. All rights reserved.</p>
+    </footer>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script> <!-- Link ke file JavaScript -->
+</body>
+</html>
