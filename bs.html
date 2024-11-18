@@ -92,36 +92,21 @@
         <p>Contoh: Pada persamaan \( y = 3x^2 + x + 1 \), diskriminannya adalah \( D = b^2 - 4ac = 1^2 - 4(3)(1) = -11 \), sehingga grafiknya tidak menyentuh sumbu X.</p>
     </section>
 
-    <!-- Kalkulator -->
-<section id="kalkulator">
-    <h2>Kalkulator Fungsi Kuadrat</h2>
-    <p>Masukkan nilai untuk menghitung fungsi kuadrat dan turunannya:</p>
-    <div class="form-container">
-        <label for="a">Koefisien a:</label>
-        <input type="number" id="a" placeholder="Masukkan nilai a">
-
-        <label for="b">Koefisien b:</label>
-        <input type="number" id="b" placeholder="Masukkan nilai b">
-
-        <label for="c">Koefisien c:</label>
-        <input type="number" id="c" placeholder="Masukkan nilai c">
-
-        <button class="button" onclick="calculateQuadratic()">Hitung</button>
-    </div>
-    <div id="result" class="result-box" style="display: none;">
-        <canvas id="quadraticGraph" width="400" height="400"></canvas> <!-- Elemen untuk grafik -->
-    </div>
-</section>
+     
 
 <section id="grafik">
 <div class="form-container2">
-    <label>Fungsi f(x): <input type="text" id="functionInput" value="x^2 + 3*x + 2" size="20"></label>
+    <label>Fungsi f(x): <input type="text" id="functionInput" value="x^2 + 3x + 2" size="20"></label>
     <button class="button" onclick="drawGraph()">Gambar Grafik</button>
   </div>
-
+  <div id="result" class="result-box" style="display: block;"></div>
   <div class="form-container3">
   <!-- Elemen Canvas untuk menggambar grafik -->
   <canvas id="grafikCanvas" width="500" height="500"></canvas>
+
+
+
+
   <!-- Tempat untuk menampilkan koordinat -->
 </div>
 

@@ -1,158 +1,306 @@
-// JavaScript untuk Kalkulator
-function calculateQuadratic() {
-    const a = parseFloat(document.getElementById('a').value);
-    const b = parseFloat(document.getElementById('b').value);
-    const c = parseFloat(document.getElementById('c').value);
 
-    if (isNaN(a) || isNaN(b) || isNaN(c) || a === 0) {
-        alert('Harap masukkan nilai valid. Nilai a tidak boleh nol.');
-        return;
+
+
+
+
+    // Variabel global
+    const canvas = document.getElementById('grafikCanvas');
+    const ctx = canvas.getContext('2d');
+    const coordinatesDiv = document.getElementById('coordinates');
+    const width = canvas.width;
+    const height = canvas.height;
+    const scale = 20; // 1 unit = 20px
+    const originX = width / 2;
+    const originY = height / 2;
+    let roots = [];
+    let yIntercept = null;
+    let peaks = [];
+    let compiledFunction = null;
+    let animationX = -10; // Awal dari animasi
+
+    // Fungsi menggambar sumbu
+    function drawAxes() {
+      ctx.strokeStyle = '#333';
+      ctx.lineWidth = 1;
+  
+      // Gambar grid (garis-garis pola)
+      ctx.strokeStyle = '#ccc'; // Warna garis grid
+      ctx.lineWidth = 0.5;
+      
+      // Garis vertikal (grid X)
+      for (let x = -10; x <= 10; x++) {
+          const canvasX = originX + x * scale;
+          ctx.beginPath();
+          ctx.moveTo(canvasX, 0);
+          ctx.lineTo(canvasX, height);
+          ctx.stroke();
+      }
+  
+      // Garis horizontal (grid Y)
+      for (let y = -10; y <= 10; y++) {
+          const canvasY = originY - y * scale;
+          ctx.beginPath();
+          ctx.moveTo(0, canvasY);
+          ctx.lineTo(width, canvasY);
+          ctx.stroke();
+      }
+  
+      // Gambar sumbu utama
+      ctx.strokeStyle = '#333'; // Warna garis utama
+      ctx.lineWidth = 1;
+  
+      // Sumbu X
+      ctx.beginPath();
+      ctx.moveTo(0, originY);
+      ctx.lineTo(width, originY);
+      ctx.stroke();
+  
+      // Sumbu Y
+      ctx.beginPath();
+      ctx.moveTo(originX, 0);
+      ctx.lineTo(originX, height);
+      ctx.stroke();
+  
+      // Gambar label angka pada sumbu X
+      ctx.font = '12px Arial';
+      ctx.fillStyle = '#333';
+      for (let x = -10; x <= 10; x++) {
+          const canvasX = originX + x * scale;
+          if (x !== 0) { // Hindari menggambar label di tengah
+              ctx.fillText(x, canvasX - 5, originY + 15);
+          }
+      }
+  
+      // Gambar label angka pada sumbu Y
+      for (let y = -10; y <= 10; y++) {
+          const canvasY = originY - y * scale;
+          if (y !== 0) { // Hindari menggambar label di tengah
+              ctx.fillText(y, originX + 5, canvasY + 5);
+          }
+      }
+  }
+  
+
+
+    drawAxes();
+    // Fungsi menggambar grafik dengan animasi
+    function animateGraph() {
+        ctx.clearRect(0, 0, width, height);
+        drawAxes();
+
+        // Gambar kurva sampai titik animasiX
+        ctx.strokeStyle = 'blue';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        let started = false;
+
+        for (let x = -10; x <= animationX; x += 0.1) {
+            const y = compiledFunction.evaluate({ x });
+            const canvasX = originX + x * scale;
+            const canvasY = originY - y * scale;
+
+            if (!started) {
+                ctx.moveTo(canvasX, canvasY);
+                started = true;
+            } else {
+                ctx.lineTo(canvasX, canvasY);
+            }
+        }
+        ctx.stroke();
+
+        // Perbarui posisi animasi
+        if (animationX < 10) {
+            animationX += 0.1;
+            requestAnimationFrame(animateGraph); // Lanjutkan animasi
+        } else {
+            // Setelah selesai, tambahkan titik potong dan titik puncak
+            drawRoots(roots);
+            drawYIntercept(yIntercept);
+            drawPeaks(peaks);
+        }
     }
 
-    const equation = `${a}x² + ${b}x + ${c}`;
-    const derivative = `${2 * a}x + ${b}`;
-    const resultBox = document.getElementById('result');
+    // Fungsi menggambar grafik (memulai animasi)
+    function drawGraph() {
+        // Reset posisi animasi
+        animationX = -10;
 
-    resultBox.innerHTML = `
-        <p><b>Persamaan:</b> ${equation}</p>
-        <p><b>Turunan:</b> ${derivative}</p>
-    `;
-    resultBox.style.display = 'block';
-window.onload = function() {
-    // Menyembunyikan intro text setelah 3 detik
-    setTimeout(function() {
-        document.getElementById('intro-text').style.display = 'none';
-    }, 3000); // Menghilangkan setelah 3 detik
+        // Ambil ekspresi fungsi
+        const inputExpression = document.getElementById('functionInput').value;
+
+        // Kompilasi fungsi
+        try {
+            compiledFunction = math.compile(inputExpression);
+        } catch (error) {
+            alert("Ekspresi fungsi tidak valid!");
+            return;
+        }
+
+        // Temukan akar, titik potong y, dan titik puncak
+        roots = findRoots(compiledFunction);
+        yIntercept = findYIntercept(compiledFunction);
+        peaks = findPeaks(math.derivative(inputExpression, 'x'));
+
+        // Mulai animasi
+        animateGraph();
+
+        // JavaScript untuk Kalkulator
+        function Kalkulator() {
+        const input = document.getElementById("functionInput").value;
+        const resultDiv = document.getElementById("result");
+      
+        // Regex untuk mengekstrak koefisien a, b, dan c
+        const regex = /([+-]?\d*\.?\d*)x\^2\s*([+-]?\d*\.?\d*)x\s*([+-]?\d*\.?\d*)/;
+        const match = input.replace(/\s+/g, '').match(regex);
+      
+        if (!match) {
+            resultDiv.textContent = "Harap masukkan fungsi dalam format ax² + bx + c yang valid.";
+            return;
+        }
+      
+        const a = parseFloat(match[1]) || 1; // Default ke 1 jika tidak ada a
+        const b = parseFloat(match[2]) || 0; // Default ke 0 jika tidak ada b
+        const c = parseFloat(match[3]) || 0; // Default ke 0 jika tidak ada c
+      
+        const D = b * b - 4 * a * c;
+        let solusi = "";
+      
+        solusi += `<p>Langkah Penyelesaian:</p>`;
+        solusi += `<p>1. Hitung diskriminan: D = b² - 4ac</p>`;
+        solusi += `<p>&emsp; D = ${b}² - 4 * ${a} * ${c}</p>`;
+        solusi += `<p>&emsp; D = ${D}</p>`;
+      
+        const x_v = -b / (2 * a);
+        const y_v = a * x_v * x_v + b * x_v + c;
+        solusi += `<p>2. Titik balik (vertex) dari fungsi kuadrat adalah: (${x_v.toFixed(2)}, ${y_v.toFixed(2)})</p>`;
+      
+        if (D > 0) {
+            const x1 = (-b + Math.sqrt(D)) / (2 * a);
+            const x2 = (-b - Math.sqrt(D)) / (2 * a);
+            solusi += "<p>2. Karena D > 0, persamaan memiliki dua akar nyata:</p>";
+            solusi += `<p>&emsp; x₁ = (-b + √D) / 2a = (${ -b } + √${D}) / ${2 * a} = ${x1.toFixed(2)}</p>`;
+            solusi += `<p>&emsp; x₂ = (-b - √D) / 2a = (${ -b } - √${D}) / ${2 * a} = ${x2.toFixed(2)}</p>`;
+            solusi += `<p>Jadi, akar-akar persamaan adalah x₁ = ${x1.toFixed(2)} dan x₂ = ${x2.toFixed(2)}</p>`;
+        } else if (D === 0) {
+            const x = -b / (2 * a);
+            solusi += "<p>3. Karena D = 0, persamaan memiliki satu akar:</p>";
+            solusi += `<p>&emsp; x = -b / 2a = ${ -b } / ${2 * a} = ${x.toFixed(2)}</p>`;
+        } else {
+            solusi += "<p>3. Karena D < 0, persamaan tidak memiliki akar real.</p>";
+        }
+      
+        resultDiv.innerHTML = solusi; // Pastikan menampilkan solusi di sini
+        resultDiv.style.display = "block";
+    }
+    Kalkulator();
 }
+    
 
-window.onload = function() {
-    // Menyembunyikan intro text setelah 3 detik
-    setTimeout(function() {
-        document.getElementById('intro-text').style.display = 'none';
-    }, 3000); // Menghilangkan setelah 3 detik
-}
-
-}
-
-
-
-// Ambil elemen canvas dan konteks 2D
-const canvas = document.getElementById('grafikCanvas');
-const ctx = canvas.getContext('2d');
-const coordinatesDiv = document.getElementById('coordinates');
-
-// Tentukan ukuran dan titik tengah canvas
-const width = canvas.width;
-const height = canvas.height;
-const scale = 20; // 1 unit = 20px
-const originX = width / 2;
-const originY = height / 2;
-
-// Fungsi untuk menggambar sumbu x dan y
-function drawAxes() {
-  ctx.strokeStyle = '#333';
-  ctx.lineWidth = 1;
-
-  // Sumbu x
-  ctx.beginPath();
-  ctx.moveTo(0, originY);
-  ctx.lineTo(width, originY);
-  ctx.stroke();
-
-  // Sumbu y
-  ctx.beginPath();
-  ctx.moveTo(originX, 0);
-  ctx.lineTo(originX, height);
-  ctx.stroke();
-
-  // Gambar label untuk sumbu x dan y
-  ctx.font = '12px Arial';
-  ctx.fillStyle = '#333';
-
-  for (let x = 1; x <= (width / 2) / scale; x++) {
-    const canvasX = originX + x * scale;
-    ctx.fillText(x, canvasX - 10, originY + 15);
-    ctx.fillText(-x, originX - x * scale - 10, originY + 15);
-  }
-
-  for (let y = 1; y <= (height / 2) / scale; y++) {
-    const canvasY = originY - y * scale;
-    ctx.fillText(y, originX + 5, canvasY + 5);
-    ctx.fillText(-y, originX + 5, originY + y * scale + 5);
-  }
-}
-
-// Fungsi untuk menggambar grafik berdasarkan input pengguna
-function drawGraph() {
-  ctx.clearRect(0, 0, width, height);
-  drawAxes();
-
-  const inputExpression = document.getElementById('functionInput').value;
-
-  let compiledFunction;
-  try {
-    compiledFunction = math.compile(inputExpression);
-  } catch (error) {
-    alert("Ekspresi fungsi tidak valid!");
-    return;
-  }
-
-  ctx.strokeStyle = 'blue';
-  ctx.lineWidth = 2;
-
-  ctx.beginPath();
-  let started = false;
-
-  const xRange = 10;
-  for (let x = -xRange; x <= xRange; x += 0.1) {
-    let y;
-    try {
-      y = compiledFunction.evaluate({ x });
-    } catch (error) {
-      alert("Kesalahan evaluasi fungsi!");
-      return;
+    // Temukan akar
+    function findRoots(compiledFunction) {
+        const roots = [];
+        for (let x = -10; x <= 10; x += 0.1) {
+            const y1 = compiledFunction.evaluate({ x });
+            const y2 = compiledFunction.evaluate({ x: x + 0.1 });
+            if (y1 * y2 < 0) {
+                roots.push(x);
+            }
+        }
+        return roots;
     }
 
-    const canvasX = originX + x * scale;
-    const canvasY = originY - y * scale;
-
-    if (!started) {
-      ctx.moveTo(canvasX, canvasY);
-      started = true;
-    } else {
-      ctx.lineTo(canvasX, canvasY);
+    // Temukan titik potong y
+    function findYIntercept(compiledFunction) {
+        return compiledFunction.evaluate({ x: 0 });
     }
-  }
 
-  ctx.stroke();
-}
-
-// Fungsi untuk menghitung koordinat x dan y pada posisi kursor
-function getCursorPosition(event) {
-  const rect = canvas.getBoundingClientRect();
-  const x = event.clientX - rect.left;
-  const y = event.clientY - rect.top;
-
-  const xMath = (x - originX) / scale;
-  const yMath = (originY - y) / scale;
-
-  const inputExpression = document.getElementById('functionInput').value;
-  let compiledFunction;
-  try {
-    compiledFunction = math.compile(inputExpression);
-    const evaluatedY = compiledFunction.evaluate({ x: xMath });
-
-    if (Math.abs(evaluatedY - yMath) < 0.5) {
-      coordinatesDiv.innerHTML = `Koordinat: (x: ${xMath.toFixed(2)}, y: ${evaluatedY.toFixed(2)})`;
-    } else {
-      coordinatesDiv.innerHTML = `Koordinat: (x: -, y: -)`;
+    // Temukan titik puncak
+    function findPeaks(derivativeFunction) {
+        const peaks = [];
+        for (let x = -10; x <= 10; x += 0.1) {
+            const slope1 = derivativeFunction.evaluate({ x });
+            const slope2 = derivativeFunction.evaluate({ x: x + 0.1 });
+            if (slope1 * slope2 < 0) {
+                const peakX = x + (slope1 / (slope1 - slope2)) * 0.1;
+                const peakY = compiledFunction.evaluate({ x: peakX });
+                peaks.push({ x: peakX, y: peakY });
+            }
+        }
+        return peaks;
     }
-  } catch (error) {
-    console.error("Kesalahan evaluasi fungsi: ", error);
-  }
-}
 
-drawAxes();
-drawGraph();
+    // Gambar akar
+    function drawRoots(roots) {
+        ctx.fillStyle = 'red';
+        roots.forEach(root => {
+            const canvasX = originX + root * scale;
+            ctx.beginPath();
+            ctx.arc(canvasX, originY, 5, 0, 2 * Math.PI);
+            ctx.fill();
+        });
+    }
 
-canvas.addEventListener('mousemove', getCursorPosition);
+    // Gambar titik potong y
+    function drawYIntercept(yIntercept) {
+        const canvasY = originY - yIntercept * scale;
+        ctx.fillStyle = 'green';
+        ctx.beginPath();
+        ctx.arc(originX, canvasY, 5, 0, 2 * Math.PI);
+        ctx.fill();
+    }
+
+    // Gambar titik puncak
+    function drawPeaks(peaks) {
+        ctx.fillStyle = 'orange';
+        peaks.forEach(peak => {
+            const canvasX = originX + peak.x * scale;
+            const canvasY = originY - peak.y * scale;
+            ctx.beginPath();
+            ctx.arc(canvasX, canvasY, 5, 0, 2 * Math.PI);
+            ctx.fill();
+        });
+    }
+
+    
+ // Event listener kursor
+ canvas.addEventListener('mousemove', event => {
+    const rect = canvas.getBoundingClientRect();
+    const cursorX = event.clientX - rect.left;
+    const cursorY = event.clientY - rect.top;
+    const xMath = (cursorX - originX) / scale;
+    const yMath = (originY - cursorY) / scale;
+  
+    if (compiledFunction) {
+        const evaluatedY = compiledFunction.evaluate({ x: xMath });
+  
+        // Periksa kedekatan dengan titik potong x
+        const closeToRoot = roots.find(root => Math.abs(root - xMath) < 0.2);
+        if (closeToRoot !== undefined) {
+            coordinatesDiv.innerHTML = `Koordinat (titik potong x): (x: ${closeToRoot.toFixed(2)}, y: 0)`;
+            return;
+        }
+  
+        // Periksa kedekatan dengan titik potong y
+        if (Math.abs(yMath - yIntercept) < 0.2 && Math.abs(xMath) < 0.2) {
+            coordinatesDiv.innerHTML = `Koordinat (titik potong y): (x: 0, y: ${yIntercept.toFixed(2)})`;
+            return;
+        }
+  
+        // Periksa kedekatan dengan titik puncak
+        const closeToPeak = peaks.find(peak => Math.abs(peak.x - xMath) < 0.2 && Math.abs(peak.y - yMath) < 0.2);
+        if (closeToPeak) {
+            coordinatesDiv.innerHTML = `Koordinat (titik puncak): (x: ${closeToPeak.x.toFixed(2)}, y: ${closeToPeak.y.toFixed(2)})`;
+            return;
+        }
+  
+        // Periksa kedekatan dengan kurva
+        if (xMath <= animationX && Math.abs(yMath - evaluatedY) < 0.2) {
+            coordinatesDiv.innerHTML = `Koordinat: (x: ${xMath.toFixed(2)}, y: ${evaluatedY.toFixed(2)})`;
+        } else {
+            coordinatesDiv.innerHTML = `Koordinat: (x: -, y: -)`;
+        }
+    }
+  });
+  
+
+
