@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Pilihan Ganda</title>
+    <link rel="stylesheet" href="kuis.css">
+</head>
+<body>
+    <div id="overlay">
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+    <div class="aurora paused"></div>
+    <div class="floating-elements"></div>
+
+    <section id="quiz-section">
+        <h2>QUIZ</h2>
+        <div id="quiz-container">
+            <!-- Tempat soal quiz -->
+        </div>
+        <div id="answer-feedback"></div>
+        <button id="next-question">JAWAB</button>
+        <div id="loading-spinner" style="display: none;">
+            <div class="spinner"></div>
+        </div>        
+        <div id="quiz-result"></div>
+        
+    </section>
+    <audio id="sound-correct" src="./sound/benar.mp3"></audio>
+    <audio id="sound-wrong" src="./sound/salah.mp3"></audio>
+    <script src="kuis.js"></script>
+</body>
+</html>

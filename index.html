@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fungsi Kuadrat</title>
+    <title>Background Animasi</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.5.0/math.min.js"></script>
+    
+</head>
+
+<body>
+    <script src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"></script>
+    <script>
+        smoothscroll.polyfill(); // Memastikan polyfill diterapkan
+    </script>
+    <script src="script.js" defer></script>
+
+    <div id="overlay">
+        <div id="explore-container">
+            <img src="image/logo.png" alt="Logo QuadCalc" class="logoquadcalc">
+            <h1>
+                <span class="quad1">Quad</span><span class="calc1">Calc</span>
+            </h1>
+            <button id="explore-button">Explore</button>
+        </div>
+    </div>
+
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+    <div class="aurora paused"></div>
+
+
+
+
+    <nav id="navbar">
+        <div class="logo">
+            <img src="image/logo.png" alt="Logo QuadCalc" class="logoquadcalc-nav">
+            <span class="quadnav">Quad</span><span class="calcnav">Calc</span>
+        </div>
+        <div>
+            <a href="#home">Home</a>
+            <a href="#fungsi-kuadrat">Materi</a>
+            <a href="#grafik">Kalkulator</a>
+            <a href="#anggota">Partner</a>
+            <a href="#about-us">About</a>
+
+    </nav>
+
+
+    <header class="header-paused" id="home">
+        <div class="header-content">
+            <h1 class="header-title">
+                <span class="quad">Quad</span><span class="calc">Calc</span>
+            </h1>
+            <h2 class="header-subtitle">Fungsi Kuadrat</h2>
+            <p class="header-quote">"Belajar dan pahami tentang fungsi kuadrat, grafik, dan kalkulasinya."</p>
+            <div class="header-info">
+                <h3 class="info-title">Apa itu Fungsi Kuadrat?</h3>
+                <p>
+                    Fungsi kuadrat adalah persamaan matematika berbentuk <b>f(x) = ax² + bx + c</b>, di mana <b>a</b>,
+                    <b>b</b>, dan <b>c</b> adalah konstanta, serta <b>a ≠ 0</b>. Grafik fungsi ini berbentuk parabola,
+                    yang:
+                </p>
+                <ul>
+                    <li><b>Titik Puncak (Vertex):</b> Titik tertinggi atau terendah dari parabola.</li>
+                    <li><b>Sumbu Simetri:</b> Garis vertikal yang membagi parabola menjadi dua bagian simetris.</li>
+                    <li><b>Akar-Akar:</b> Nilai <b>x</b> yang membuat <b>f(x) = 0</b>.</li>
+                </ul>
+                <p>
+                    Fungsi kuadrat sering digunakan dalam berbagai bidang, seperti <b>fisika</b>, <b>ekonomi</b>, dan
+                    <b>teknik</b> untuk memodelkan peristiwa berbentuk parabola.
+                </p>
+            </div>
+        </div>
+    </header>
+
+
+
+    </header>
+
+
+    <section id="fungsi-kuadrat">
+        <h2>Materi Fungsi Kuadrat</h2>
+        <h3>Pengertian</h3>
+        <p>
+            Pengertian dari fungsi kuadrat adalah sebuah fungsi polinomial atau suku banyak di mana pangkat tertinggi dari
+            variabel atau peubahnya adalah 2. Maka, bentuk umum dari fungsi kuadrat mendekati persamaan kuadrat. Selain fungsi, 
+            ada juga ciri-ciri dari fungsi kuadrat, yakni sebagai berikut:
+        </p>
+        <ul>
+            <li>Bentuk umumnya yaitu <b>f(x) = ax² + bx + c</b> dengan nilai <b>a</b> tidak boleh sama dengan nol.</li>
+            <li>Fungsi kuadrat paling sederhana adalah <b>y = x²</b> dengan derajat tertinggi adalah 2.</li>
+            <li>
+                Apabila diplotkan dalam sistem koordinat kartesian, maka bentuk grafiknya adalah parabola. Bentuknya bisa 
+                beragam, mulai dari landai hingga curam. Akan tetapi, bentuk dasarnya adalah huruf <b>U</b> yang dapat membuka 
+                ke atas atau ke bawah tergantung nilai <b>a</b>.
+            </li>
+            <li>Memiliki titik balik minimum atau maksimum.</li>
+            <li>Terdapat sumbu simetri yang memotong parabola secara vertikal menjadi dua bagian.</li>
+            <li>Memiliki diskriminan dengan rumus <b>D = b² - 4ac</b>.</li>
+            <hr class="section-divider">
+        </ul>
+
+        <h2>Rumus Fungsi Kuadrat</h2>
+        <p>
+            Apakah Sobat Pijar tahu, jika salah satu fungsi dalam ilmu matematika yang mirip dengan bentuk persamaan kuadrat adalah fungsi kuadrat? 
+            Misalnya, bentuk pada persamaan kuadrat adalah:
+        </p>
+        <p><b>ax² + bx + c = 0</b></p>
+        <p>
+            Nah, untuk rumus persamaan fungsi kuadrat adalah sebagai berikut:
+        </p>
+        <p><b>f(x) = ax² + bx + c</b></p>
+        <p>Dengan keterangan sebagai berikut:</p>
+        <ul>
+            <li><b>f(x):</b> Fungsi kuadrat.</li>
+            <li><b>a</b> dan <b>b:</b> Koefisien.</li>
+            <li><b>c:</b> Konstanta.</li>
+            <li><b>x:</b> Variabel.</li>
+            <li><b>a:</b> Tidak boleh sama dengan 0.</li>
+
+        </ul>
+    <h3>1. Diskriminan</h3>
+    <p>
+        Diskriminan digunakan untuk menentukan jumlah dan jenis akar-akar dari persamaan kuadrat. Nilai diskriminan dihitung dengan rumus berikut:
+    </p>
+    <pre>D = b² - 4ac</pre>
+    <p>Diskriminan ( D ) menentukan jenis akar yang dimiliki persamaan kuadrat:</p>
+    <ul>
+        <li>Jika ( D > 0 ), persamaan memiliki dua akar nyata yang berbeda.</li>
+        <li>Jika ( D = 0 ), persamaan memiliki satu akar nyata (akar ganda).</li>
+        <li>Jika ( D < 0 ), persamaan tidak memiliki akar nyata, tetapi memiliki akar imajiner.</li>
+    </ul>
+    <h3>Contoh:</h3>
+    <div class="example">
+        Untuk persamaan <strong>y = x² - 4x + 3</strong>, diskriminannya dihitung sebagai berikut:
+        <pre>D = (-4)² - 4(1)(3) = 16 - 12 = 4</pre>
+        Karena ( D > 0 ), persamaan ini memiliki dua akar nyata yang berbeda.
+    </div>
+
+    </ul>
+    <h3>2. Rumus Akar Kuadrat (Penyelesaian Persamaan Kuadrat)</h3>
+    <p>
+        Untuk menyelesaikan persamaan kuadrat <strong>ax² + bx + c = 0</strong>, kita dapat menggunakan rumus kuadrat sebagai berikut:
+    </p>
+    <pre>x = (-b ± √D) / 2a</pre>
+    <p>Di mana  ( D ) adalah diskriminan yang dihitung dengan rumus <strong>D = b² - 4ac</strong>. Simbol ( ± ) menunjukkan dua solusi untuk ( x ), satu dengan tanda positif dan satu dengan tanda negatif.</p>
+
+    <h3>Contoh:</h3>
+    <div class="example">
+        Untuk persamaan <strong>x² - 4x + 3 = 0</strong>, kita sudah mengetahui bahwa <strong>D = 4</strong>. Maka akar-akar persamaan tersebut adalah:
+        <pre>x = -(-4) ± √4 / 2(1) = 4 ± 2 / 2</pre>
+        Solusi:
+        <pre>x₁ = (4 + 2) / 2 = 3</pre>
+        <pre>x₂ = (4 - 2) / 2 = 1</pre>
+        Jadi, akar-akar dari persamaan tersebut adalah <strong>x = 3</strong> dan <strong>x = 1</strong>.
+    </div>
+    <hr class="section-divider">
+    </ul>
+
+        <h2>Grafik Fungsi Kuadrat</h2>
+        <p>
+            Nah, kini saatnya Sobat Pijar mengetahui apa itu grafik fungsi kuadrat, yaitu suatu grafik yang berguna untuk menguraikan gambaran dari fungsi kuadrat.
+        </p>
+
+        <h3>Ciri-Ciri Grafik Fungsi Kuadrat</h3>
+        <ul>
+            <li>Memiliki grafik yang simetris.</li>
+            <li>Bentuknya identik seperti parabola.</li>
+            <li>Hanya memiliki <b>titik minimum</b> saja atau <b>titik maksimum</b> saja, tidak keduanya.</li>
+            <li>
+                Adanya <b>f(x) = y</b> yang merupakan variabel terikat. Sementara itu, variabel bebasnya adalah <b>x</b>, dan 
+                <b>a</b> serta <b>b</b> adalah koefisien, di mana variabel dengan pangkat paling tinggi adalah dua.
+            </li>
+        </ul>
+
+        <h3>1.Sifat Grafik Fungsi Kuadrat</h3>
+        <p>
+            Grafik fungsi kuadrat memiliki beberapa sifat tergantung pada nilai koefisien <b>a</b>, yaitu:
+        </p>
+        <ol>
+            <li>
+                <b>Grafik Terbuka Ke Atas</b>: 
+                Jika <b>a > 0</b>, maka grafik parabola terbuka ke atas. Bentuknya seperti huruf <b>U</b>.
+            </li>
+            <li>
+                <b>Grafik Terbuka Ke Bawah</b>: 
+                Jika <b>a < 0</b>, maka grafik parabola terbuka ke bawah. Bentuknya seperti huruf <b>∩</b>.
+                <p>Berikut adalah ilustrasi grafik fungsi kuadrat yang menunjukkan sifat-sifatnya:</p>
+            <img src = "image/grafik.png" alt="Fungsi Kuadrat" style="width: 100%; max-width: 750px; height: auto;">
+            </li>
+        </ol>
+        <h3>2. Titik Puncak</h3>
+<p>
+    Sifat ini terlihat pada grafik yang mengarah ke bawah atau ke atas. Jika grafik mengarah ke bawah, maka titik puncaknya adalah titik maksimum. Sebaliknya, jika grafik mengarah ke atas, titik puncaknya adalah titik minimum.
+</p>
+<p>
+    Rumus untuk menentukan titik puncak grafik fungsi kuadrat yang memiliki bentuk umum <b>y = ax² + bx + c</b> adalah:
+</p>
+<p style="text-align: center;">
+    (<b>xp</b>, <b>yp</b>) = 
+    <b>(−b / 2a, −D / 4a)</b>
+</p>
+<p>Keterangan:</p>
+<ul>
+    <li><b>xp</b>: posisi titik puncak pada sumbu <b>x</b>.</li>
+    <li><b>yp</b>: posisi titik puncak pada sumbu <b>y</b>.</li>
+    <li><b>a</b>: koefisien dari <b>x²</b>.</li>
+    <li><b>b</b>: koefisien dari <b>x</b>.</li>
+    <li><b>D</b>: diskriminan, yaitu <b>D = b² - 4ac</b>.</li>
+</ul>
+
+<h3>3. Sumbu Simetri</h3>
+<p>
+    Grafik fungsi kuadrat bersifat simetris karena adanya sumbu simetri. Sumbu ini bertindak sebagai garis cermin pada grafik dan membagi grafik menjadi dua bagian yang sama. Rumus untuk menentukan sumbu simetri adalah:
+</p>
+<p style="text-align: center;">
+    <b>x = −b / 2a</b>
+</p>
+
+<h3>4. Titik Potong Sumbu Y</h3>
+<p>
+    Titik potong sumbu <b>Y</b> adalah titik di mana grafik memotong sumbu <b>Y</b>. Pada grafik fungsi kuadrat <b>y = ax² + bx + c</b>, titik potong sumbu <b>Y</b> adalah di <b>(0, c)</b>.
+</p>
+
+<h3>5. Titik Potong Sumbu X</h3>
+<p>
+    Titik potong sumbu <b>X</b> adalah titik di mana grafik memotong sumbu <b>X</b>. Untuk menentukan titik potong ini, gunakan rumus:
+</p>
+<p style="text-align: center;">
+    <b>y = a(x − x₁)(x − x₂)</b>
+</p>
+<p>
+    Di mana <b>x₁</b> dan <b>x₂</b> adalah akar-akar persamaan kuadrat.
+</p>
+    <hr class="section-divider">
+<h2>Cara Menyusun Grafik Fungsi Kuadrat</h2>
+<ol>
+    <li>Tentukan tiga titik koordinat menggunakan persamaan <b>y = ax² + bx + c</b>.</li>
+    <li>Identifikasi titik potong sumbu <b>X</b> dan <b>Y</b>.</li>
+    <li>
+        Aplikasikan rumus <b>y = a(x − x₁)(x − x₂)</b> untuk menemukan titik-titik pada grafik, atau gunakan rumus <b>y = a(x − x₁)² + yp</b> untuk mengetahui bentuk parabola.
+    </li>
+</ol>
+          
+<hr class="section-divider">
+       
+ </ul>
+        <h2>Contoh Soal dan langkah Penyelesaian Fungsi Kuadrat</h2>
+        <div id="soal-navigation" class="soal-navigation">
+            <button class="soal-button active" onclick="showSoal(1)">Soal 1</button>
+            <button class="soal-button" onclick="showSoal(2)">Soal 2</button>
+            <button class="soal-button" onclick="showSoal(3)">Soal 3</button>
+        </div>
+        <div id="soal-content">
+            <div class="soal" id="soal-1">
+                <h3>Soal 1</h3>
+                <p>Selesaikan persamaan kuadrat berikut:</p>
+                <p><b>f(x) = x² + 3x + 2</b></p>
+        <h3>Penyelesaian</h3>
+        <ol>
+            <li>
+                <b>Hitung diskriminan (D):</b>
+                <p>D = b² - 4ac</p>
+                <p>D = 3² - 4 * 1 * 2</p>
+                <p>D = 9 - 8 = 1</p>
+            </li>
+            <li>
+                <b>Titik balik (vertex):</b>
+                <p>x = -b / 2a = -3 / (2 * 1) = -1.50</p>
+                <p>y = f(-1.5) = (-1.5)² + 3(-1.5) + 2 = -0.25</p>
+                <p>Titik balik adalah (-1.50, -0.25)</p>
+            </li>
+            <li>
+                <b>Cari akar-akar persamaan:</b>
+                <ul>
+                    <li>x₁ = (-b + √D) / 2a = (-3 + √1) / 2 = -1.00</li>
+                    <li>x₂ = (-b - √D) / 2a = (-3 - √1) / 2 = -2.00</li>
+                </ul>
+            </li>
+        </ol>
+        <p><b>Kesimpulan:</b> Akar-akar persamaan adalah x₁ = -1.00 dan x₂ = -2.00.</p>
+        </div>
+       <div class="soal" id="soal-2">
+    <h3>Soal 2</h3>
+    <p>Selesaikan persamaan kuadrat berikut:</p>
+    <p><b>f(x) = 2x² + 4x + 1</b></p>
+    <h3>Penyelesaian</h3>
+    <ol>
+        <li>
+            <b>Hitung diskriminan (D):</b>
+            <p>D = b² - 4ac</p>
+            <p>D = 4² - 4 * 2 * 1 = 16 - 8 = 8</p>
+        </li>
+        <li>
+            <b>Titik balik (vertex):</b>
+            <p>x = -b / 2a = -4 / (2 * 2) = -1.00</p>
+            <p>y = f(-1) = 2(-1)² + 4(-1) + 1 = -1.00</p>
+            <p>Titik balik adalah (-1.00, -1.00)</p>
+        </li>
+        <li>
+            <b>Cari akar-akar persamaan:</b>
+            <p>x₁ = (-b + √D) / 2a = (-4 + √8) / 4 = -0.29</p>
+            <p>x₂ = (-b - √D) / 2a = (-4 - √8) / 4 = -1.71</p>
+        </li>
+    </ol>
+    <p><b>Kesimpulan:</b> Akar-akar persamaan adalah x₁ = -0.29 dan x₂ = -1.71.</p>
+</div>
+
+<div class="soal" id="soal-3" style="display: none;">
+    <h3>Soal 3</h3>
+    <p>Selesaikan persamaan kuadrat berikut:</p>
+    <p><b>f(x) = -x² + 2x - 1</b></p>
+    <h3>Penyelesaian</h3>
+    <ol>
+        <li>
+            <b>Hitung diskriminan (D):</b>
+            <p>D = b² - 4ac</p>
+            <p>D = 2² - 4 * -1 * -1</p>
+            <p>D = 4 - 4 = 0</p>
+        </li>
+        <li>
+            <b>Titik balik (vertex):</b>
+            <p>x = -b / 2a = -2 / (2 * -1) = -1.00</p>
+            <p>y = f(-1) = -(-1)² + 2(-1) - 1 = -2.00</p>
+            <p>Titik balik adalah (-1.00, -2.00)</p>
+        </li>
+        <li>
+            <b>Cari akar-akar persamaan:</b>
+            <p>x₁ = (-b + √D) / 2a = (-2 + √8) / 2(-1) = 0.41</p>
+            <p>x₂ = (-b - √D) / 2a = (-2 - √8) / 2(-1) = -2.41</p>
+        </li>
+    </ol>
+    <p><b>Kesimpulan:</b> Akar-akar persamaan adalah x₁ = 0.41 dan x₂ = -2.41.</p>
+</div>
+                   
+           
+    </div>
+        
+    </section>
+            </li>
+
+        </ol>
+        <button id="tombol-kuis" class="tombol">Mulai Quiz</button>
+    </section>
+
+    <section id="grafik">
+        <h2>KALKULATOR FUNGSI KUADRAT</h2>
+        <div class="form-container2">
+            <label>Fungsi f(x): <input type="text" id="functionInput" value="x^2 + 3x + 2" size="20"></label>
+            <button class="button" onclick="drawGraph()">Hitung</button>
+            <button id="resetButton" onclick="resetGraph()">Reset</button>
+        </div>
+        <div id="tampilan">
+            <div id="result" class="result-box" style="display: block;"></div>
+            <div class="form-container3">
+
+                <canvas id="grafikCanvas" width="700" height="430"></canvas>
+
+            </div>
+            <div id="coordinates" style="text-align: center;">Koordinat: (x: -, y: -)</div>
+        </div>
+    </section>
+
+
+    <section id="anggota">
+        <h2>WORKTEAM PARTNERS</h2>
+        <div class="team-members">
+            <div class="member">
+                <img src="image/faisal.png" alt="Faisal Fadillah Al Ghifari" class="member-photo">
+                <p class="member-name">Faisal Fadillah Al Ghifari</p>
+                <p class="member-npm">NPM: 247006111123</p>
+            </div>
+            <div class="member">
+                <img src="image/reza.png" alt="Reza Pahri Fauzi" class="member-photo">
+                <p class="member-name">Reza Pahri Fauzi</p>
+                <p class="member-npm">NPM: 247006111124</p>
+            </div>
+            <div class="member">
+                <img src="image/adil.png" alt="Achmad Adil Arasy Darmawan" class="member-photo">
+                <p class="member-name">Achmad Adil Arasy Darmawan</p>
+                <p class="member-npm">NPM: 247006111128</p>
+            </div>
+            <div class="member">
+                <img src="image/ripki.png" alt="Ripki Maulana" class="member-photo">
+                <p class="member-name">Ripki Maulana</p>
+                <p class="member-npm">NPM: 247006111139</p>
+            </div>
+            <div class="member">
+                <img src="image/fadli.png" alt="Fadhli Fajriel Habibie" class="member-photo">
+                <p class="member-name">Fadhli Fajrial Habibie</p>
+                <p class="member-npm">NPM: 247006111142</p>
+            </div>
+        </div>
+
+    </section>
+    <section id="about-us">
+        <h2>ABOUT</h2>
+        <div class="about-content">
+            <img src="image/unsil.png" alt="Logo Universitas" class="about-logo">
+            <p>QuadCalc adalah Website interaktif untuk mempelajari fungsi kuadrat. Web ini dirancang untuk memenuhi
+                kebutuhan Tugas Akhir mata kuliah Kalkulus Semester Ganjil.</p>
+        </div>
+
+        <h3 class="section-title">SOCIAL MEDIA</h3>
+        <div class="team-instagram">
+            <div class="team-member">
+                <a href="https://instagram.com/faisalfdllh" target="_blank"
+                    aria-label="Instagram Faisal Fadillah Al Ghifari">
+                    <img src="image/instagram.png" alt="Instagram logo for Faisal Fadillah Al Ghifari">
+                </a>
+                <p>Faisal Fadillah Al Ghifari</p>
+            </div>
+            <div class="team-member">
+                <a href="https://instagram.com/rzphri_" target="_blank" aria-label="Instagram Reza Pahri Fauzi">
+                    <img src="image/instagram.png" alt="Instagram logo for Reza Pahri Fauzi">
+                </a>
+                <p>Reza Pahri Fauzi</p>
+            </div>
+            <div class="team-member">
+                <a href="https://instagram.com/ahmadadiill" target="_blank"
+                    aria-label="Instagram Achmad Adil Arasy Darmawan">
+                    <img src="image/instagram.png" alt="Instagram logo for Achmad Adil Arasy Darmawan">
+                </a>
+                <p>Achmad Adil Arasy Darmawan</p>
+            </div>
+            <div class="team-member">
+                <a href="https://instagram.com/rifkimaulana774" target="_blank" aria-label="Instagram Ripki Maulana">
+                    <img src="image/instagram.png" alt="Instagram logo for Ripki Maulana">
+                </a>
+                <p>Ripki Maulana</p>
+            </div>
+            <div class="team-member">
+                <a href="https://instagram.com/fazrialfadhli" target="_blank"
+                    aria-label="Instagram Fadhli Fajrial Habibie">
+                    <img src="image/instagram.png" alt="Instagram logo for Fadhli Fajrial Habibie">
+                </a>
+                <p>Fadhli Fajrial Habibie</p>
+            </div>
+        </div>
+
+        <div class="contact-person">
+            <h3>CONTACT</h3>
+            <p>
+                <b>
+                    <img src="image/email.png" alt="Email Icon" class="email-icon">
+                </b>
+                <a href="mailto:quadratcalc@gmail.com">quadratcalc@gmail.com</a>
+            </p>
+
+        </div>
+
+
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024. <span class="team">QuadCalc</span> All rights reserved.</p>
+    </footer>
+    
+    <audio id="openingSound" src="sound/welcome.mpeg" preload="auto"></audio>
+    
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js" defer></script>
+</body>
+
+</html>
